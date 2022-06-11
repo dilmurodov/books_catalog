@@ -6,4 +6,4 @@
 - Gorm
 - Postgres
 - swagger (rest documentation)
-- Used service/repository design Pattern!
+- Used service & repository design Pattern!
