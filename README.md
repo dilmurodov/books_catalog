@@ -1,6 +1,6 @@
 # books_catalog
 
-# Project complated using Technogies:
+# Project completed using Technologies:
 - Go
 - Gin
 - Gorm
