@@ -1,0 +1,346 @@
+basePath: /
+definitions:
+  models.CreateBook:
+    properties:
+      author:
+        type: string
+      categoryId:
+        type: integer
+      link:
+        type: string
+      pages:
+        type: integer
+      title:
+        type: string
+      year:
+        type: integer
+    type: object
+  models.CreateCategory:
+    properties:
+      categoryname:
+        type: string
+    type: object
+  models.UpdateBook:
+    properties:
+      author:
+        type: string
+      categoryId:
+        type: integer
+      link:
+        type: string
+      pages:
+        type: integer
+      title:
+        type: string
+      year:
+        type: integer
+    type: object
+  models.UpdateCategory:
+    properties:
+      categoryname:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact: {}
+  description: API Server to Books Catalog.
+  title: Books Catalog API
+  version: "1.0"
+paths:
+  /api/books:
+    get:
+      consumes:
+      - application/json
+      description: get books
+      operationId: get-books
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get All Books
+      tags:
+      - books
+    post:
+      consumes:
+      - application/json
+      description: create book
+      operationId: creat-book
+      parameters:
+      - description: book
+        in: body
+        name: input
+        schema:
+          $ref: '#/definitions/models.CreateBook'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Creat Book
+      tags:
+      - books
+  /api/books/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete book by id
+      operationId: delete-book
+      parameters:
+      - description: book_id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+      summary: delete Book by Id
+      tags:
+      - books
+    get:
+      consumes:
+      - application/json
+      description: get books by id
+      operationId: get-book
+      parameters:
+      - description: book_id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get books by Id
+      tags:
+      - books
+    patch:
+      consumes:
+      - application/json
+      description: update book by id
+      operationId: update-book
+      parameters:
+      - description: books_id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: book
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateBook'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Update Book by Id
+      tags:
+      - books
+  /api/categories:
+    get:
+      consumes:
+      - application/json
+      description: get categories
+      operationId: get-categories
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get All Category
+      tags:
+      - categories
+    post:
+      consumes:
+      - application/json
+      description: create category
+      operationId: creat-category
+      parameters:
+      - description: category
+        in: body
+        name: input
+        schema:
+          $ref: '#/definitions/models.CreateCategory'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Creat Category
+      tags:
+      - categories
+  /api/categories/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete category by id
+      operationId: delete-category
+      parameters:
+      - description: category_id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+      summary: delete Category by Id
+      tags:
+      - categories
+    get:
+      consumes:
+      - application/json
+      description: get category by id
+      operationId: get-category
+      parameters:
+      - description: category _
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get Category by Id
+      tags:
+      - categories
+    patch:
+      consumes:
+      - application/json
+      description: update category by id
+      operationId: update-category
+      parameters:
+      - description: category_id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: category
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCategory'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Update Category by Id
+      tags:
+      - categories
+schemes:
+- http
+swagger: "2.0"

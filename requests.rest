@@ -1,0 +1,97 @@
+# GET Category with Id
+
+GET http://localhost:8000/api/categories/1
+
+###
+
+# GET All Categories
+
+GET http://localhost:8000/api/categories/
+
+###
+
+# ADD new Category
+
+POST http://localhost:8000/api/categories/
+Content-Type: application/json
+
+{
+    "categoryname": "Fantastic", 
+    "books": [
+        {
+            "name": "The Epic Of Gilgamesh",
+            "author": "Unknown",
+            "page": 160,
+            "year": -160,
+            "link":  "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh"
+        },
+        {
+            "name": "The Book Of Job",
+            "author": "Unknown",
+            "page": 176,
+            "year": -600,
+            "link":  "https://en.wikipedia.org/wiki/Book_of_Job"
+        }
+    ]
+}
+
+###
+
+# UPDATE Category with ID
+
+PATCH http://localhost:8000/api/categories/1
+Content-Type: application/json
+
+{
+    "categoryname": "changed name"
+}
+
+###
+
+# DELETE Category with ID
+
+DELETE http://localhost:8000/api/categories/3
+
+//=================================================
+
+###
+
+# GET Book with Id
+
+GET http://localhost:8000/api/books/1
+
+###
+
+# GET All Books
+
+GET http://localhost:8000/api/books/
+
+###
+
+# ADD new Book
+
+POST http://localhost:8000/api/books/
+Content-Type: application/json
+
+{
+    "page": 160,
+    "link":  "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh",
+    "categoryId": 1
+}
+
+###
+
+# UPDATE Category with ID
+
+PATCH http://localhost:8000/api/books/1
+Content-Type: application/json
+
+{
+    "categoryname": "changed name"
+}
+
+###
+
+# DELETE Category with ID
+
+DELETE http://localhost:8000/api/books/17
