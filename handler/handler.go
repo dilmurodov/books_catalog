@@ -23,7 +23,6 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 	router.Use(gin.Logger(), gin.Recovery())
 
-	// router.GET("/swagger", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	api := router.Group("/api")
